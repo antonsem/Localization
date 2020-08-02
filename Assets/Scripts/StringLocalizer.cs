@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using TMPro;
 using MyBox;
 
@@ -7,8 +8,8 @@ public class StringLocalizer : MonoBehaviour
 {
     [SerializeField, ReadOnly]
     private TextMeshProUGUI textField;
-    [SerializeField, ReadOnly]
-    private string defaultString = "";
+    [SerializeField]
+    private Translation defaultString;
 
     private void OnEnable()
     {
@@ -23,21 +24,27 @@ public class StringLocalizer : MonoBehaviour
 
     private void UpdateLanguage()
     {
-        if (!string.IsNullOrEmpty(defaultString))
-            textField.text = Localizer.Get(defaultString);
-        else
-            Debug.LogErrorFormat("The string of text object '{0}' is empty. Cannot set the language!", this);
+        textField.text = Localizer.Get(defaultString);
     }
 
     [ButtonMethod]
-    private void GetDefaultString()
+    private void GetValueFromText()
     {
-        defaultString = textField.text;
+        if(!Enum.TryParse(textField.text, out Translation id))
+        {
+            Debug.LogError($"The Translation enum does not have a value of '<color=red>{textField.text}</color>'! Did you forgot to update it?");
+            return;
+        }
+
+        defaultString = id;
     }
 
     private void Reset()
     {
-        textField = GetComponent<TextMeshProUGUI>();
-        defaultString = textField.text;
+        if (TryGetComponent(out textField))
+            return;
+        
+        Debug.LogError($"{name} does not have a TextMeshProUGUI component. The StringLocalizer cannot work without one!", this);
+        enabled = false;
     }
 }
