@@ -20,14 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00782056-6e72-479b-978e-773ade1d67a5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StringLocalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StringLocalizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/MyBoxSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/MyBoxSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Translations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Translations.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +36,18 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Localizer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Translations.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Localizer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///StringLocalizer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StringLocalizer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Translations.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StringLocalizer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Localizer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Translations.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" />
       </list>
     </option>
   </component>
@@ -87,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596360312550</updated>
-      <workItem from="1596360327415" duration="5739000" />
+      <workItem from="1596360327415" duration="9263000" />
     </task>
     <servers />
   </component>
@@ -108,6 +106,14 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="92" y="92" width="1674" height="896" maximized="true" key="DiffContextDialog" timestamp="1596369276646">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="92" y="92" width="1674" height="896" maximized="true" key="DiffContextDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1596369276646" />
+    <state x="599" y="209" key="VcsDiffUtil.ChangesDialog" timestamp="1596368535192">
+      <screen x="0" y="0" width="1858" height="1080" />
+    </state>
+    <state x="599" y="209" key="VcsDiffUtil.ChangesDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1596368535192" />
     <state x="508" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1596363834565">
       <screen x="0" y="0" width="1858" height="1080" />
     </state>

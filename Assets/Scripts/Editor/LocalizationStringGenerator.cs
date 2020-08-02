@@ -4,6 +4,8 @@ using UnityEditor;
 
 public static class LocalizationStringGenerator
 {
+    private static string savePath = Application.dataPath;
+    
     [MenuItem("Localization/Generate Translation Constants")]
     private static void Generate()
     {
@@ -12,7 +14,7 @@ public static class LocalizationStringGenerator
         if (string.IsNullOrEmpty(translationFile)) return;
 
         // Get a path for the new file
-        string savePath = EditorUtility.OpenFolderPanel("Save to", Application.dataPath, "Translations.cs");
+        savePath = EditorUtility.OpenFolderPanel("Save to", savePath, "Translations.cs");
         if (string.IsNullOrEmpty(savePath)) return;
 
         // Read the csv file with translations
@@ -50,6 +52,9 @@ public static class LocalizationStringGenerator
         // Save the class to the path you choose in the beginning, with tne name Translations.cs
         File.WriteAllText($"{savePath}/Translations.cs", newClass);
 
+        // Force Unity to recompile the scripts
+        AssetDatabase.Refresh();
+        
         // Show the success message
         EditorUtility.DisplayDialog("Translations.cs generated!", $"New class Translations.cs is saved to {savePath}!",
             "AWESOME!");

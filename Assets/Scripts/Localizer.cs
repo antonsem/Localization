@@ -22,6 +22,9 @@ public static class Localizer
         }
     }
 
+    /// <summary>
+    /// Currently loaded languages
+    /// </summary>
     public static string[] Languages { get; private set; }
 
     private static string currentLanguage = "English";
