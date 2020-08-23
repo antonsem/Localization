@@ -3,48 +3,57 @@ using UnityEngine;
 using TMPro;
 using MyBox;
 
-[RequireComponent(typeof(TextMeshProUGUI))]
-public class StringLocalizer : MonoBehaviour
+namespace Localization
 {
-    [SerializeField, ReadOnly]
-    private TextMeshProUGUI textField;
-    [SerializeField]
-    private Translation defaultString;
-
-    private void OnEnable()
+    [RequireComponent(typeof(TextMeshProUGUI)), DisallowMultipleComponent]
+    public class StringLocalizer : MonoBehaviour
     {
-        Localizer.languageChanged += UpdateLanguage;
-        UpdateLanguage();
-    }
+        [SerializeField, ReadOnly]
+        private TextMeshProUGUI textField;
+        [SerializeField]
+        private Translation defaultString;
 
-    private void OnDisable()
-    {
-        Localizer.languageChanged -= UpdateLanguage;
-    }
-
-    private void UpdateLanguage()
-    {
-        textField.text = Localizer.Get(defaultString);
-    }
-
-    [ButtonMethod]
-    private void GetValueFromText()
-    {
-        if(!Enum.TryParse(textField.text, out Translation id))
+        private void OnEnable()
         {
-            Debug.LogError($"The Translation enum does not have a value of '<color=red>{textField.text}</color>'! Did you forgot to update it?");
-            return;
+            Localizer.languageChanged += UpdateLanguage;
+            UpdateLanguage();
         }
 
-        defaultString = id;
-    }
+        private void OnDisable()
+        {
+            Localizer.languageChanged -= UpdateLanguage;
+        }
 
-    private void Reset()
-    {
-        if (TryGetComponent(out textField))
-            return;
-        
-        Debug.LogError($"{name} does not have a TextMeshProUGUI component. The StringLocalizer cannot work without one!", this);
-        enabled = false;
+        private void UpdateLanguage()
+        {
+            textField.text = Localizer.Get(defaultString);
+        }
+
+        [ButtonMethod]
+        private void GetValueFromText()
+        {
+            if (!Enum.TryParse(textField.text, out Translation id))
+            {
+                Debug.LogError(
+                    $"The Translation enum does not have a value of '<color=red>{textField.text}</color>'! Did you forgot to update it?");
+                return;
+            }
+
+            defaultString = id;
+        }
+
+        private void Reset()
+        {
+            if (TryGetComponent(out textField))
+            {
+                GetValueFromText();
+                return;
+            }
+
+            Debug.LogError(
+                $"{name} does not have a TextMeshProUGUI component. The StringLocalizer cannot work without one!",
+                this);
+            enabled = false;
+        }
     }
 }

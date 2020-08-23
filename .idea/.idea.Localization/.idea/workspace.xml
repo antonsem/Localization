@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -20,10 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00782056-6e72-479b-978e-773ade1d67a5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StringLocalizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StringLocalizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Test.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Translations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Translations.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Localization.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Localization.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,18 +46,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Localizer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Translations.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Localizer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///StringLocalizer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StringLocalizer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Localizer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/StreamingAssets/Localization.csv" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StringLocalizer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DropdownLocalizer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Localizer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Test.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Translations.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationStringGenerator.cs" />
       </list>
@@ -69,15 +82,22 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
       <method v="2" />
     </configuration>
     <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="00782056-6e72-479b-978e-773ade1d67a5" name="Default Changelist" comment="" />
@@ -86,6 +106,8 @@
       <option name="presentableId" value="Default" />
       <updated>1596360312550</updated>
       <workItem from="1596360327415" duration="9263000" />
+      <workItem from="1598183909128" duration="11000" />
+      <workItem from="1598184050100" duration="2829000" />
     </task>
     <servers />
   </component>
@@ -101,6 +123,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -114,9 +137,10 @@
       <screen x="0" y="0" width="1858" height="1080" />
     </state>
     <state x="599" y="209" key="VcsDiffUtil.ChangesDialog/0.0.1858.1080@0.0.1858.1080" timestamp="1596368535192" />
-    <state x="508" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1596363834565">
-      <screen x="0" y="0" width="1858" height="1080" />
+    <state x="2445" y="45" width="869" height="1034" key="search.everywhere.popup" timestamp="1598186766087">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="508" y="45" width="840" height="1034" key="search.everywhere.popup/0.0.1858.1080@0.0.1858.1080" timestamp="1596363834565" />
+    <state x="2445" y="45" width="869" height="1034" key="search.everywhere.popup/0.34.1920.1046/1920.0.1920.1080@1920.0.1920.1080" timestamp="1598186766087" />
   </component>
 </project>

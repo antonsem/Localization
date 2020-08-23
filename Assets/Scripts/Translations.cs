@@ -1,5 +1,10 @@
-public enum Translation
+namespace Localization
 {
-    id = 0,
-    ui_hello = 1,
+    public enum Translation
+    {
+        id = 0,
+        ui_hello = 1,
+        ui_language = 2,
+        ui_translation = 3,
+    }
 }
