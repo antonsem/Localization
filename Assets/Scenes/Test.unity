@@ -599,7 +599,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1116068553}
-        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_TargetAssemblyTypeName: Localization.Test, Assembly-CSharp
         m_MethodName: ChangeLanguage
         m_Mode: 5
         m_Arguments:
@@ -789,7 +789,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 835903429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5d8510050662b48e9b50cd3d340a914, type: 3}
+  m_Script: {fileID: 11500000, guid: 29d1b5cfad74be24a8715db9dba11497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dropdown: {fileID: 835903432}
@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1116068548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a08ae05cb810a43dcbacdcab2bcc167c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dfcd935837a1bb328751f428c066b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1277837569
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1728857868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0487779d870f8460d8507ebeedb24d1a, type: 3}
+  m_Script: {fileID: 11500000, guid: ef7dbb76dbec136e4a88c1bfd41f02ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 1728857871}
@@ -2258,7 +2258,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1116068553}
-        m_TargetAssemblyTypeName: Test, Assembly-CSharp
+        m_TargetAssemblyTypeName: Localization.Test, Assembly-CSharp
         m_MethodName: ChangeLanguage
         m_Mode: 5
         m_Arguments:

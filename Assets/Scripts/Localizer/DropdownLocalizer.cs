@@ -30,7 +30,6 @@ namespace Localization
             label.text = Localizer.Get(defaultStrings[dropdown.value]);
         }
 
-        [MyBox.ButtonMethod]
         private void GetDefaultStrings()
         {
             defaultStrings = new Translation[dropdown.options.Count];

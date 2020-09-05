@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.mybox": {
-      "version": "https://github.com/Deadcows/MyBox.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "648522af32252f16c46f6f88ab322e86775ec55b"
-    },
     "com.unity.ext.nunit": {
       "version": "1.0.0",
       "depth": 2,

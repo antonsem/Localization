@@ -1,17 +1,14 @@
 ﻿using System;
 using UnityEngine;
 using TMPro;
-using MyBox;
 
 namespace Localization
 {
     [RequireComponent(typeof(TextMeshProUGUI)), DisallowMultipleComponent]
     public class StringLocalizer : MonoBehaviour
     {
-        [SerializeField, ReadOnly]
-        private TextMeshProUGUI textField;
-        [SerializeField]
-        private Translation defaultString;
+        [SerializeField, HideInInspector] private TextMeshProUGUI textField;
+        [SerializeField] private Translation defaultString;
 
         private void OnEnable()
         {
@@ -29,7 +26,6 @@ namespace Localization
             textField.text = Localizer.Get(defaultString);
         }
 
-        [ButtonMethod]
         private void GetValueFromText()
         {
             if (!Enum.TryParse(textField.text, out Translation id))
@@ -44,16 +40,8 @@ namespace Localization
 
         private void Reset()
         {
-            if (TryGetComponent(out textField))
-            {
-                GetValueFromText();
-                return;
-            }
-
-            Debug.LogError(
-                $"{name} does not have a TextMeshProUGUI component. The StringLocalizer cannot work without one!",
-                this);
-            enabled = false;
+            textField = GetComponent<TextMeshProUGUI>();
+            GetValueFromText();
         }
     }
 }
