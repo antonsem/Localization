@@ -1,4 +1,2 @@
-id;English;Türkçe
-ui_hello;Hello World;Merhaba Dünya
-ui_language;Language;Dil
-ui_translation;Translation;Çeviri
+id;English
+ui_hello;Hello World
