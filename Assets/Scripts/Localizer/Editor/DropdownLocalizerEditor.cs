@@ -16,6 +16,7 @@ namespace Localization
     public class DropdownLocalizerEditor : UnityEditor.Editor
     {
         private IEnumerable<Enum> _displayOrder;
+        private List<Translation> _tempList;
         private Type _type;
         private FieldInfo _structFields;
         private FieldInfo _dropdown;
@@ -77,27 +78,27 @@ namespace Localization
 
             int optionsCount = (_dropdown.GetValue(target) as TMP_Dropdown).options.Count;
 
-            List<Translation> list = new List<Translation>(_translations.Length);
+            _tempList = new List<Translation>(_translations.Length);
 
             foreach (Translation translation in _translations)
-                list.Add(translation);
+                _tempList.Add(translation);
 
             bool hasChanged = false;
-            if (optionsCount > list.Count)
+            if (optionsCount > _tempList.Count)
             {
-                int count = list.Count;
+                int count = _tempList.Count;
                 for (int i = 0; i < optionsCount - count; i++)
-                    list.Add(0);
+                    _tempList.Add(0);
 
                 hasChanged = true;
             }
 
 
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < _tempList.Count; i++)
             {
                 if (i >= optionsCount)
                 {
-                    list.RemoveAt(i);
+                    _tempList.RemoveAt(i);
                     hasChanged = true;
                     continue;
                 }
@@ -105,18 +106,18 @@ namespace Localization
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Label($"{(i + 1).ToString()}. ", _labelStyle);
                 int i1 = i;
-                EnumPicker.Button(list[i].ToString(), () => _displayOrder,
+                EnumPicker.Button(_tempList[i].ToString(), () => _displayOrder,
                     val =>
                     {
-                        list[i1] = (Translation)val;
-                        UpdateValues(list.ToArray());
+                        _tempList[i1] = (Translation)val;
+                        UpdateValues(_tempList.ToArray());
                     });
                 
                 EditorGUILayout.EndHorizontal();
             }
 
             if (!hasChanged) return;
-            UpdateValues(list.ToArray());
+            UpdateValues(_tempList.ToArray());
         }
 
         private void UpdateValues(in Translation[] list)

@@ -6,5 +6,6 @@ namespace Localization
         ui_hello = 1,
         ui_language = 2,
         ui_translation = 3,
+        paramsTest = 4,
     }
 }

@@ -13,5 +13,11 @@ namespace Localization
         {
             Localizer.CurrentLanguage = newLanguage;
         }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.T))
+                Debug.Log(Localizer.Get(Translation.paramsTest, "1", "2"));
+        }
     }
 }

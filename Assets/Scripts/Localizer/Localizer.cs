@@ -95,10 +95,11 @@ namespace Localization
         /// Returns a localized string in current language
         /// </summary>
         /// <param name="id">String id</param>
+        /// <param name="parameters">Parameters for the string</param>
         /// <returns></returns>
-        public static string Get(in Translation id)
+        public static string Get(in Translation id, params object[] parameters)
         {
-            return Get(CurrentLanguage, id);
+            return Get(CurrentLanguage, id, parameters);
         }
 
         /// <summary>
@@ -106,10 +107,11 @@ namespace Localization
         /// </summary>
         /// <param name="language">Requested language</param>
         /// <param name="id">Requested string</param>
-        public static string Get(in string language, in Translation id)
+        /// <param name="parameters">Parameters for the string</param>
+        public static string Get(in string language, in Translation id, params object[] parameters)
         {
             if (Translations.ContainsKey(id))
-                return Translations[id].Get(language);
+                return string.Format(Translations[id].Get(language), parameters);
 
             Debug.LogErrorFormat("Translations does not contain a string with id '<color=red>{0}</color>'!", id);
             return $"{id} ({language})";
