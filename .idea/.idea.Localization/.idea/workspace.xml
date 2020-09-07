@@ -26,12 +26,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Localization/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localizer/Editor/DropdownLocalizerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localizer/Editor/DropdownLocalizerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localizer/Localizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localizer/Localizer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localizer/Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localizer/Test.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Localizer/Translations.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Localizer/Translations.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Localization.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Localization.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Localization.csv.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Localization.csv.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Localization_backup.csv.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Localization_backup.csv.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +58,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/ETSEditorWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/LocalizationEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/StreamingAssets/Localization.csv" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Localizer/Editor/DropdownLocalizerEditor.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Localizer/Localizer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Localizer/Test.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Localizer/Editor/DropdownLocalizerEditor.cs" />
       </list>
     </option>
   </component>
@@ -115,7 +112,8 @@
       <workItem from="1598184050100" duration="15754000" />
       <workItem from="1599044698163" duration="31264000" />
       <workItem from="1599337227542" duration="765000" />
-      <workItem from="1599504657641" duration="1069000" />
+      <workItem from="1599504657641" duration="1159000" />
+      <workItem from="1599506116293" duration="18000" />
     </task>
     <servers />
   </component>

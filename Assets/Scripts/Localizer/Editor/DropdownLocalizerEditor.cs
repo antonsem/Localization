@@ -63,10 +63,11 @@ namespace Localization
             if (!_stylesInitialized)
                 SetStyles();
 
-            _translations ??= (Array) _structFields.GetValue(target);
-            
+            if (_translations == null)
+                _translations = (Array) _structFields.GetValue(target);
+
             TextMeshProUGUI labelObj = _label.GetValue(target) as TextMeshProUGUI;
-            if(!labelObj)
+            if (!labelObj)
                 EditorGUILayout.HelpBox("Label should be set! Localizer won't work otherwise...", MessageType.Error);
 
             EditorGUI.BeginChangeCheck();
@@ -109,10 +110,10 @@ namespace Localization
                 EnumPicker.Button(_tempList[i].ToString(), () => _displayOrder,
                     val =>
                     {
-                        _tempList[i1] = (Translation)val;
+                        _tempList[i1] = (Translation) val;
                         UpdateValues(_tempList.ToArray());
                     });
-                
+
                 EditorGUILayout.EndHorizontal();
             }
 
@@ -127,7 +128,7 @@ namespace Localization
             _translations = (Array) _structFields.GetValue(target);
             EditorUtility.SetDirty(target);
         }
-        
+
         private static IEnumerable<Enum> GetValues(Type enumType)
         {
             return enumType.IsEnum
