@@ -35,11 +35,9 @@ namespace Localization
             Languages = new List<string>(lines[0].Split(';'));
             Languages.RemoveAt(0);
 
-            List<string> stringTranslations = new List<string>(Languages.Count);
-
             for (int i = 1; i < stringCount; i++)
             {
-                stringTranslations = lines[i].Split(';').ToList(); //Split the line to individual translated strings
+                IgnoreEscapeChar(out List<string> stringTranslations, lines[i].Split(';').ToList()); //Split the line to individual translated strings
                 string id = stringTranslations[0];
                 stringTranslations.RemoveAt(0);
                 ETS ets = new ETS(id, Languages.ToList(), stringTranslations);
@@ -47,6 +45,22 @@ namespace Localization
             }
 
             return translations;
+        }
+        
+        private static void IgnoreEscapeChar(out List<string> combinedLines, IReadOnlyList<string> lines)
+        {
+            combinedLines = new List<string>(lines.Count);
+            for (int i = 0; i < lines.Count; i++)
+            {
+                string line = lines[i];
+                while (line[line.Length - 1] == '\\' && (line.Length < 2 || line[line.Length - 2] != '\\'))
+                {
+                    if (++i >= lines.Count) break;
+                    line = $"{line.Remove(line.Length - 1)};{lines[i]}";
+                }
+
+                combinedLines.Add(line);
+            }
         }
 
         public bool HasNonUniqueKeys()
@@ -152,7 +166,7 @@ namespace Localization
             return $"No translation for {Key} in {language}";
         }
 
-        public void Set(in string language, in string val)
+        public void Set(in string language, string val)
         {
             for (int i = 0; i < Languages.Count; i++)
             {

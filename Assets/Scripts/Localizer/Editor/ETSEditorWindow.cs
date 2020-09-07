@@ -39,7 +39,9 @@ namespace Localization
                 EditorGUI.BeginChangeCheck();
                 string newTranslation = EditorGUILayout.TextArea(_ets.Translations[i]);
                 if (EditorGUI.EndChangeCheck())
+                {
                     _ets.Set(_ets.Languages[i], newTranslation);
+                }
 
                 if (_ets.IsEdited[i] && GUILayout.Button($"Reset {_ets.Languages[i]} translation"))
                     _ets.ResetTranslation(_ets.Languages[i]);

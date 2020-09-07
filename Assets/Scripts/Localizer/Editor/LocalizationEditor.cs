@@ -264,6 +264,16 @@ namespace Localization
             foreach (ETS ets in _data.TranslationStrings)
             {
                 if (ets.IsDeleted) continue;
+                for (int i = 0; i < ets.Translations.Count; i++)
+                {
+                    string val = ets.Translations[i];
+                    for (int j = val.Length - 1; j >= 0; j--)
+                    {
+                        if (val[j] == ';')
+                            val = val.Insert(j, "\\");
+                    }
+                    ets.Translations[i] = val;
+                }
                 csv = $"{csv}{ets.Key};{string.Join(";", ets.Translations)}\n";
             }
 
