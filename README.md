@@ -51,3 +51,13 @@ These posts are describing earlier versions of this system.
 3. Use `Localizer.CurrentLanguage` to get or set the current language
   a) `Localizer.languageChanged` action is fired whenever current language is changed
 4. Use `Localizer.Languages` to get a list of all languages
+
+# Escape charcter
+You are free to use semicolon (;) in the custom editor UI. The asset can handle it. However, if you want to edit the Localization.csv
+with an external editor add backslash (\) before the semicolon. If you need to have the backslash at the end of a string, add another
+one before it.
+
+`escapeCharacterExample_1;To add semicolon write it like this \; <-. It will work;Noktalı virgü bu şekilde eklenebilir \; <-.`
+
+`escapeCharacterExample_2;To add the escape character to the end of a string do this: \\;İşaretini satırın sonunda şu şekilde kullanabilirsiniz: \\`
+
