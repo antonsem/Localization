@@ -9,7 +9,7 @@ using UnityPickers;
 namespace Localization
 {
     [CustomEditor(typeof(StringLocalizer))]
-    public class StringLocalizerEditor : UnityEditor.Editor
+    public class StringLocalizerEditor : Editor
     {
         private IEnumerable<Enum> _displayOrder;
         private Type _type;
@@ -17,7 +17,7 @@ namespace Localization
         private FieldInfo _text;
         private GUIStyle _labelStyle;
         private bool _stylesInitialized = false;
-        
+
         private void OnEnable()
         {
             _type = typeof(StringLocalizer);
@@ -34,31 +34,30 @@ namespace Localization
 
         public override void OnInspectorGUI()
         {
+            if (GUILayout.Button("Reset"))
+            {
+                MethodInfo dynMethod = _type.GetMethod("Reset",
+                    BindingFlags.NonPublic | BindingFlags.Instance);
+                dynMethod.Invoke(target, null);
+                _text = _type.GetField("textField", BindingFlags.NonPublic | BindingFlags.Instance);
+            }
+
+            EditorGUILayout.Space(15);
+
             if (_text.GetValue(target) == null)
             {
                 EditorGUILayout.HelpBox(
                     "The TMPro.TextMeshProUGUI is not set! This component requires it to function...",
                     MessageType.Error);
-                if (!GUILayout.Button("Set Text component")) return;
-
-                MethodInfo dynMethod = _type.GetMethod("Reset",
-                    BindingFlags.NonPublic | BindingFlags.Instance);
-                dynMethod.Invoke(target, null);
-                _text = _type.GetField("textField", BindingFlags.NonPublic | BindingFlags.Instance);
-
                 return;
             }
-            
-            if(!_stylesInitialized) SetStyles();
-            
-            EditorGUILayout.Space();
+
+            if (!_stylesInitialized) SetStyles();
+
             EditorGUILayout.BeginHorizontal();
             GUILayout.Label("Translation: ", _labelStyle);
             EnumPicker.Button(_fieldInfo.GetValue(target).ToString(), () => _displayOrder,
-                val =>
-                {
-                    _fieldInfo.SetValue(target, val);
-                });
+                val => { _fieldInfo.SetValue(target, ((Translation) val).ToString()); });
             EditorGUILayout.EndHorizontal();
         }
 

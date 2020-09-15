@@ -784,7 +784,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropdown: {fileID: 835903432}
   label: {fileID: 477454463}
-  defaultStrings: 0200000003000000
+  defaultStrings:
+  - ui_language
+  - ui_translation
 --- !u!114 &835903432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1780,7 +1782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 1728857871}
-  defaultString: 1
+  defaultString: ui_hello
 --- !u!114 &1728857871
 MonoBehaviour:
   m_ObjectHideFlags: 0

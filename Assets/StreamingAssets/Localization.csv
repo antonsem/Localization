@@ -1,5 +1,6 @@
 id;English;Türkçe
 ui_hello;Hello World;Merhaba Dünya
+default_id;English;Türkçe
 ui_language;Language;Dil
 ui_translation;Translation;Çeviri
 paramsTest;Testing {0} - {1} params;Parametre {0} - {1} testi

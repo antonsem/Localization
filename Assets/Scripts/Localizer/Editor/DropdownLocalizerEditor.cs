@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -13,10 +12,10 @@ using UnityPickers;
 namespace Localization
 {
     [CustomEditor(typeof(DropdownLocalizer))]
-    public class DropdownLocalizerEditor : UnityEditor.Editor
+    public class DropdownLocalizerEditor : Editor
     {
         private IEnumerable<Enum> _displayOrder;
-        private List<Translation> _tempList;
+        private List<string> _tempList;
         private Type _type;
         private FieldInfo _structFields;
         private FieldInfo _dropdown;
@@ -30,9 +29,8 @@ namespace Localization
             _type = typeof(DropdownLocalizer);
             _dropdown = _type.GetField("dropdown", BindingFlags.NonPublic | BindingFlags.Instance);
             _label = _type.GetField("label", BindingFlags.NonPublic | BindingFlags.Instance);
-            _structFields =
-                _type.GetField("defaultStrings",
-                    BindingFlags.NonPublic | BindingFlags.Instance); //typeof(DropdownLocalizer).GetFields();
+            _structFields = _type.GetField("defaultStrings",
+                    BindingFlags.NonPublic | BindingFlags.Instance);
             _displayOrder = GetValues(typeof(Translation));
         }
 
@@ -45,25 +43,29 @@ namespace Localization
 
         public override void OnInspectorGUI()
         {
+            if (GUILayout.Button("Reset"))
+            {
+                MethodInfo dynMethod = _type.GetMethod("Reset",
+                    BindingFlags.NonPublic | BindingFlags.Instance);
+                dynMethod.Invoke(target, null);
+                _dropdown = _type.GetField("dropdown", BindingFlags.NonPublic | BindingFlags.Instance);
+                _translations = null;
+            }
+            
+            EditorGUILayout.Space(25);
+
             if (_dropdown.GetValue(target) == null)
             {
                 EditorGUILayout.HelpBox(
                     "The TMPro.TMP_Dropdown is not set! This component requires it to function...",
                     MessageType.Error);
-                if (!GUILayout.Button("Set Dropdown component")) return;
-
-                MethodInfo dynMethod = _type.GetMethod("Reset",
-                    BindingFlags.NonPublic | BindingFlags.Instance);
-                dynMethod.Invoke(target, null);
-                _dropdown = _type.GetField("dropdown", BindingFlags.NonPublic | BindingFlags.Instance);
-
                 return;
             }
 
             if (!_stylesInitialized)
                 SetStyles();
 
-            if (_translations == null)
+            if (_translations == null || _translations.Length == 0)
                 _translations = (Array) _structFields.GetValue(target);
 
             TextMeshProUGUI labelObj = _label.GetValue(target) as TextMeshProUGUI;
@@ -79,9 +81,9 @@ namespace Localization
 
             int optionsCount = (_dropdown.GetValue(target) as TMP_Dropdown).options.Count;
 
-            _tempList = new List<Translation>(_translations.Length);
+            _tempList = new List<string>(_translations.Length);
 
-            foreach (Translation translation in _translations)
+            foreach (string translation in _translations)
                 _tempList.Add(translation);
 
             bool hasChanged = false;
@@ -89,7 +91,7 @@ namespace Localization
             {
                 int count = _tempList.Count;
                 for (int i = 0; i < optionsCount - count; i++)
-                    _tempList.Add(0);
+                    _tempList.Add(((Translation)0).ToString());
 
                 hasChanged = true;
             }
@@ -107,10 +109,10 @@ namespace Localization
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.Label($"{(i + 1).ToString()}. ", _labelStyle);
                 int i1 = i;
-                EnumPicker.Button(_tempList[i].ToString(), () => _displayOrder,
+                EnumPicker.Button(_tempList[i], () => _displayOrder,
                     val =>
                     {
-                        _tempList[i1] = (Translation) val;
+                        _tempList[i1] = ((Translation) val).ToString();
                         UpdateValues(_tempList.ToArray());
                     });
 
@@ -121,7 +123,7 @@ namespace Localization
             UpdateValues(_tempList.ToArray());
         }
 
-        private void UpdateValues(in Translation[] list)
+        private void UpdateValues(in string[] list)
         {
             _structFields.SetValue(target, list);
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
