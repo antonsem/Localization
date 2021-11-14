@@ -10,7 +10,7 @@ namespace Localization
         private static ETS _ets;
         private static int _index;
 
-        public static void ShowWindow(int index, in ETS ets, Action<int, ETS> callback)
+        public static void ShowWindow(int index, ETS ets, Action<int, ETS> callback)
         {
             _index = index;
             _ets = ets;

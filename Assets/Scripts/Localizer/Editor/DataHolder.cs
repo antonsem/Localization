@@ -8,9 +8,9 @@ namespace Localization
 {
     public class DataHolder
     {
-        private static readonly string[] _defaultCSV = new string[] {"id;English", "UI_hello;Hello World"};
+        private static readonly string[] _defaultCSV = {"id;English", "UI_hello;Hello World"};
 
-        public DataHolder(in string path)
+        public DataHolder(string path)
         {
             TranslationStrings = ReadLocalizationFile(path);
         }
@@ -19,16 +19,16 @@ namespace Localization
 
         public List<string> Languages { get; private set; }
 
-        private List<ETS> ReadLocalizationFile(in string path)
+        private List<ETS> ReadLocalizationFile(string path)
         {
             return !File.Exists(path)
                 ? LoadFromCSV(_defaultCSV)
                 : LoadFromCSV(File.ReadAllLines(path, System.Text.Encoding.UTF8));
         }
 
-        private List<ETS> LoadFromCSV(in string[] lines)
+        private List<ETS> LoadFromCSV(IReadOnlyList<string> lines)
         {
-            int stringCount = lines.Length; //Cache translation string count
+            int stringCount = lines.Count; //Cache translation string count
             List<ETS> translations =
                 new List<ETS>(stringCount - 1); //Initialize translation dictionary
 
@@ -97,7 +97,7 @@ namespace Localization
                 ets.AddLanguage(newLanguage);
         }
 
-        public void RenameLanguage(in string oldLanguage, in string newLanguage)
+        public void RenameLanguage(string oldLanguage, string newLanguage)
         {
             int index = Languages.IndexOf(oldLanguage);
             if (index < 0)
@@ -111,7 +111,7 @@ namespace Localization
                 ets.RenameLanguage(oldLanguage, newLanguage);
         }
 
-        public void RemoveLanguage(in string language)
+        public void RemoveLanguage(string language)
         {
             Languages.Remove(language);
             foreach (ETS ets in TranslationStrings)
@@ -131,9 +131,9 @@ namespace Localization
         public List<bool> IsEdited { get; }
         public bool IsKeyEdited { get; private set; } = false;
         public bool IsKeyUnique { get; set; } = true;
-        public bool IsNew { get; private set; } = false;
+        public bool IsNew { get; } = false;
 
-        public ETS(in string key, List<string> languages, List<string> translations, bool isNew = false)
+        public ETS(string key, List<string> languages, List<string> translations, bool isNew = false)
         {
             _defaultKey = Key = key;
             Languages = languages;
@@ -155,7 +155,7 @@ namespace Localization
             IsKeyEdited = true;
         }
 
-        public string Get(in string language)
+        public string Get(string language)
         {
             for (int i = 0; i < Languages.Count; i++)
             {
@@ -166,7 +166,7 @@ namespace Localization
             return $"No translation for {Key} in {language}";
         }
 
-        public void Set(in string language, string val)
+        public void Set(string language, string val)
         {
             for (int i = 0; i < Languages.Count; i++)
             {
@@ -179,7 +179,7 @@ namespace Localization
             Debug.LogError($"Couldn't find language {language}!");
         }
 
-        public void RenameLanguage(in string oldLanguage, in string newLanguage)
+        public void RenameLanguage(string oldLanguage, string newLanguage)
         {
             for (int i = 0; i < Languages.Count; i++)
             {
@@ -208,7 +208,7 @@ namespace Localization
                 IsEdited[i] = false;
         }
 
-        public void ResetTranslation(in string language)
+        public void ResetTranslation(string language)
         {
             for (int i = 0; i < Languages.Count; i++)
             {
@@ -224,7 +224,7 @@ namespace Localization
             IsKeyEdited = false;
         }
 
-        public void RemoveLanguage(in string language)
+        public void RemoveLanguage(string language)
         {
             int index = Languages.IndexOf(language);
             if (index < 0)

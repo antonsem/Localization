@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -190,31 +191,31 @@ namespace Localization
             EditorGUILayout.EndHorizontal();
         }
 
-        private bool IsFiltered(in ETS ets)
-        {
-            if (_filter == 0 && !ets.Key.ToLower().Contains(_searchParameters))
-                return true;
-            if (_filter > 0 && !ets.Get(_data.Languages[_filter - 1]).ToLower().Contains(_searchParameters))
-                return true;
-            //if (_modificationFilter <= 0) return false;
-            bool isEdited = ets.IsKeyEdited || ets.IsEdited.Contains(true);
-            int filter = (int) _modificationFilter;
-            switch (filter)
-            {
-                case 0:
-                case 1 when isEdited:
-                case 2 when ets.IsDeleted:
-                case 3 when isEdited || ets.IsDeleted:
-                case 4 when ets.IsNew:
-                case 5 when isEdited || ets.IsNew:
-                case 6 when ets.IsDeleted || ets.IsNew:
-                case 7 when isEdited || ets.IsDeleted || ets.IsNew:
-                case -1 when isEdited || ets.IsDeleted || ets.IsNew:
-                    return false;
-            }
+        private bool IsFiltered(ETS ets)
+{
+    if (_filter == 0 && !ets.Key.ToLower().Contains(_searchParameters))
+        return true;
+    if (_filter > 0 && !ets.Get(_data.Languages[_filter - 1]).ToLower().Contains(_searchParameters))
+        return true;
 
-            return true;
-        }
+    bool isEdited = ets.IsKeyEdited || ets.IsEdited.Contains(true);
+    int filter = (int) _modificationFilter;
+    switch (filter)
+    {
+        case 0:
+        case 1 when isEdited:
+        case 2 when ets.IsDeleted:
+        case 3 when isEdited || ets.IsDeleted:
+        case 4 when ets.IsNew:
+        case 5 when isEdited || ets.IsNew:
+        case 6 when ets.IsDeleted || ets.IsNew:
+        case 7 when isEdited || ets.IsDeleted || ets.IsNew:
+        case -1 when isEdited || ets.IsDeleted || ets.IsNew:
+            return false;
+    }
+
+    return true;
+}
 
         private void OnAddLanguage()
         {
@@ -255,11 +256,11 @@ namespace Localization
 
             if (string.IsNullOrEmpty(savePath)) return;
 
-            string csv = "id";
+            StringBuilder csv = new StringBuilder("id");
             foreach (string language in _data.Languages)
-                csv = $"{csv};{language}";
+                csv.Append($";{language}");
 
-            csv = $"{csv}\n";
+            csv.Append("\n");
 
             foreach (ETS ets in _data.TranslationStrings)
             {
@@ -274,10 +275,10 @@ namespace Localization
                     }
                     ets.Translations[i] = val;
                 }
-                csv = $"{csv}{ets.Key};{string.Join(";", ets.Translations)}\n";
+                csv.AppendLine($"{ets.Key};{string.Join(";", ets.Translations)}");
             }
 
-            File.WriteAllText($"{savePath}/Temp_Localization.csv", csv);
+            File.WriteAllText($"{savePath}/Temp_Localization.csv", csv.ToString());
             File.Replace($"{savePath}/Temp_Localization.csv", $"{savePath}/Localization.csv",
                 $"{savePath}/Localization_backup.csv");
 

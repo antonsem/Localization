@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,8 +32,9 @@ namespace Localization
             }
         
             // Initialize new static class we will be saving the translations into
-            string newClass = $"namespace {_nameSpace}\n{{\n    public enum Translation\n    {{\n";
-        
+            StringBuilder newClass =
+                new StringBuilder($"namespace {_nameSpace}\n{{\n    public enum Translation\n    {{\n");
+            
             for (int i = 0; i < lines.Length; i++)
                 lines[i] = lines[i].Split(';')[0];
 
@@ -44,17 +46,17 @@ namespace Localization
                 EditorUtility.DisplayProgressBar("Writing strings", "Converting the csv file to a cs class",
                     (float) i / lines.Length);
 
-                newClass += $"        {lines[i]} = {i.ToString()},\n";
+                newClass.AppendLine($"        {lines[i]} = {i.ToString()},");
             }
 
             // Add the final bracket
-            newClass += "    }\n}\n";
+            newClass.AppendLine("    }\n}");
 
             // Close the progress bar
             EditorUtility.ClearProgressBar();
         
             // Save the class to the path you choose in the beginning, with tne name Translations.cs
-            File.WriteAllText($"{_savePath}/Translations.cs", newClass);
+            File.WriteAllText($"{_savePath}/Translations.cs", newClass.ToString());
 
             // Force Unity to recompile the scripts
             AssetDatabase.Refresh();
